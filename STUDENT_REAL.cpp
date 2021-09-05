@@ -9,6 +9,21 @@ using namespace std;
 
 //course structure
 
+
+
+int integer_validation(){
+    int a;
+    cin>>a;
+
+    while(!cin.good()){
+        cin.clear();
+        cin.ignore(INT_MAX,'\n');
+        cout<<"Error try again: ";
+        cin>>a;
+    }
+    return a;
+}
+
 struct course
 {
 	string course_name;
@@ -240,7 +255,8 @@ char masterMenu()
     cout << "\t\t\t" << char(192);      for(int i=0; i<21; i++){cout << char(196);}      cout << char(217) << endl;
     cout<<endl;
     cout<<endl;
-    cout<<"\n\t\t->Input Here: " ;cin>>choice;
+    cout<<"\n\t\t->Input Here: " ;	
+    choice=integer_validation();
 
     return choice;
 
@@ -301,7 +317,8 @@ char functionMenu()
 	cout << "\t"<< char(186) << "   \t\t 5.To Delete  Record             \t     " << char(186) << endl;
 	cout << "\t"<< char(186) << "   \t\t 6.To EXIT            \t\t\t     " << char(186) << endl;
 	cout << "\t"<< char(186) << "                    \t\t\t\t\t     " << char(186)<<endl;
-	cout << "\t"<< "   \t\t\t ->Input Here: ";cin>>choice;
+	cout << "\t"<< "   \t\t\t ->Input Here: ";
+	choice=integer_validation();
 
 
 	return choice;
@@ -329,7 +346,8 @@ char studentMenu(int idnumber)
 	cout << "\t"<< char(186) << "   \t\t 4.Contact your teacher                      " << char(186) << endl;
 	cout << "\t"<< char(186) << "   \t\t 5.To EXIT            \t\t\t     " << char(186) << endl;
 	cout << "\t"<< char(186) << "                    \t\t\t\t\t     " << char(186) << endl;
-	cout << "\t"<< char(186) << "   \t\t\t ->Input Here: ";cin>>choice;
+	cout << "\t"<< char(186) << "   \t\t\t ->Input Here: ";
+	choice=integer_validation();
 
 	return choice;
     }
@@ -401,7 +419,7 @@ void getinfo(student s[], int sizee)
         //another global variables
         int redo;
         cout <<"GO TO MAIN MENU? (1/2)\n";
-        cin>>redo;
+        redo=integer_validation();
 
         if(redo == 1)
         {
@@ -550,3 +568,16 @@ void contact()
 
 
 }
+int integer_validation(){
+    int a;
+    cin>>a;
+
+    while(!cin.good()){
+        cin.clear();
+        cin.ignore(INT_MAX,'\n');
+        cout<<"Error try again: ";
+        cin>>a;
+    }
+    return a;
+}
+
